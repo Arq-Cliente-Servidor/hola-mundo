@@ -4,30 +4,32 @@
 #include <zmqpp/zmqpp.hpp>
 
 using namespace std;
+using namespace zmqpp;
 
 int main(int argc, char *argv[]) {
   const string endpoint = "tcp://*:4242";
 
   // initialize the 0MQ context
-  zmqpp::context context;
+  context ctx;
 
   // generate a pull socket
-  zmqpp::socket_type type = zmqpp::socket_type::pull;
-  zmqpp::socket socket(context, type);
+  socket s(ctx, socket_type::pull);
 
   // bind to the socket
   cout << "Binding to " << endpoint << "..." << endl;
-  socket.bind(endpoint);
+  s.bind(endpoint);
 
   // receive the message
-  cout << "Receiving message..." << endl;
-  zmqpp::message message;
-  // decompose the message
-  socket.receive(message);
-  string text;
-  int number;
-  message >> text >> number;
+  while (true) {
+    cout << "Receiving message..." << endl;
+    message msg;
+    // decompose the message
+    s.receive(msg);
+    string text;
+    int number;
+    msg >> text >> number;
+    cout << "Received text:\"" << text << "\" and a number: " << number << endl;
+  }
 
-  cout << "Received text:\"" << text << "\" and a number: " << number << endl;
   cout << "Finished." << endl;
 }
