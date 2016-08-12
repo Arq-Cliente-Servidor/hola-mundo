@@ -1,5 +1,6 @@
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/utp/zmq/lib
-CC = g++ -std=c++11 -I/home/utp/zmq/include -L/home/utp/zmq/lib
+ZMQ=/home/utp/zmq
+CC = g++ -std=c++11 -I$(ZMQ)/include -L$(ZMQ)/lib
 
 all: client server
 
