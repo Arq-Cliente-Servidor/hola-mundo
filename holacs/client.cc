@@ -4,28 +4,29 @@
 #include <zmqpp/zmqpp.hpp>
 
 using namespace std;
+using namespace zmqpp;
 
 int main(int argc, char *argv[]) {
-  const string endpoint = "tcp://localhost:4242";
+  const string endpoint = "tcp://192.168.13.238:4242";
 
   // initialize the 0MQ context
-  zmqpp::context context;
+  context ctx;
 
   // generate a push socket
-  zmqpp::socket_type type = zmqpp::socket_type::push;
-  zmqpp::socket socket(context, type);
+  socket s(ctx, socket_type::push);
 
   // open the connection
   cout << "Opening connection to " << endpoint << "..." << endl;
-  socket.connect(endpoint);
+  s.connect(endpoint);
 
   // send a message
   cout << "Sending text and a number..." << endl;
-  zmqpp::message message;
-  // compose a message from a string and a number
-  message << "Hello World!" << 42;
-  socket.send(message);
+  message msg;
+  // compose a msg from a string and a number
+  msg << "Carolina" << 20;
+  s.send(msg);
 
   cout << "Sent message." << endl;
   cout << "Finished." << endl;
 }
+
