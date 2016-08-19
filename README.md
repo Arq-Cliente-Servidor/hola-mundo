@@ -67,6 +67,6 @@ In other terminal:
 
       ./client
 
-Solution to possible error compiling:
+Solution to possible compiling error:
 
       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/utp/zmq/lib
