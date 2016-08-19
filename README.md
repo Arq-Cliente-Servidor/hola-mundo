@@ -58,10 +58,8 @@ Enter the folder and type in your terminal:
 
 Type in your terminal:
 
-      ```
       make
       ./server
-      ```
 
 In other terminal:
 
