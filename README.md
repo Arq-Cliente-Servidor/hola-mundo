@@ -17,19 +17,19 @@ Enter the folder and type in your terminal:
 
 * With permissions
 
->     ./configure
-
->     make -j4
-
->     sudo make install
+      ``` 
+      ./configure 
+      make -j4 
+      sudo make install
+      ```
 
 * Without permissions
 
->     ./configure --prefix=/home/user/zmq
-
->     make -j4
-
->     make install
+      ``` 
+      ./configure --prefix=/home/user/zmq
+      make -j4
+      make install
+      ```
 
 ## Install ZMQPP
 
@@ -39,29 +39,29 @@ Enter the folder and type in your terminal:
 
 * With permissions
 
->     make -j4
-
->     sudo make install
+      ``` 
+      make -j4
+      sudo make install
+      ```
 
 * Without permissions
 
->     mkdir build
-
->     cd build
-
->     cmake -DCMAKE_PREFIX_PATH=/home/user/zmq -DCMAKE_INSTALL_PREFIX=/home/user/zmq ../zmqpp/
-
->     make -j4
-
->     make install
+      ```
+      mkdir build
+      cd build
+      cmake -DCMAKE_PREFIX_PATH=/home/user/zmq -DCMAKE_INSTALL_PREFIX=/home/user/zmq ../zmqpp/
+      make -j4
+      make install
+      ```
 
 ## Executing
 
 Type in your terminal:
 
+      ```
       make
-
-    ./server
+      ./server
+      ```
 
 In other terminal:
 
